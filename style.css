@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background-image: url("img/pokedex-bg_1280.jpg");
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    border-bottom: 1px solid brown;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+#headerLeft {
+    display: flex;
+    align-items: center;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 30px;
+    /*justify-content: space-around;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px 20px;*/
+}
+
+#pokemonCard {
+    height: 400px;
+    width: 250px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#upperSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.element {
+    border: 1px solid black;
+    border-radius: 2px;
+    color: whitesmoke;
+}
+
+.noSecondElement {
+    display: none;
+}
+
+#elements {
+    display: flex;
+}
