@@ -50,7 +50,7 @@ async function fetchFlavorTexts() {
         let response = await fetch(speciesURL);
         let speciesData = await response.json();
         let flavorText = speciesData.flavor_text_entries[0].flavor_text;
-        let cleanFlavor = flavorText.replace("\n", " ");
+        let cleanFlavor = flavorText.replace(/\n/g, ' ').replace(/\f/g, ' ');
 
         texts.push({
             name: pokemonDetails[i].name,
