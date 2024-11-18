@@ -89,3 +89,11 @@ function filterPokemon(query) {
     currentPokemon = allPokemon.filter(name => name.includes(query))
     renderPokemon();
 }
+
+function openDetailView() {
+    document.getElementById('detailView').classList.replace("isHidden", "isShown");
+}
+
+function closeDetailView() {
+    document.getElementById('detailView').classList.replace("isShown", "isHidden");
+}

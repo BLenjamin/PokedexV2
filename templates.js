@@ -1,5 +1,5 @@
 function pokemonCard(index) {
-    return `<div id="pokemonCard" class="${fillTypes1(index)}">
+    return `<div id="pokemonCard" onclick="openDetailView()" class="${fillTypes1(index)}">
     <div id="upperSection">
         <span id="pokeID">#${pokemonDetails[index].id}</span>
         <h2>${capitalizeFirstLetter(pokemonDetails[index].name)}</h2>
