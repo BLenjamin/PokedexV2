@@ -22,16 +22,21 @@ function capitalizeFirstLetter(string) {
 }
 
 function fillDetailView(index) {
-    return `<div class="innerDetailWrapper">
+    return `<div class="innerDetailWrapper ${fillTypes1(index)}">
         <div id="detailUpperSection">
-            <h2>${pokemonDetails[index].name}</h2>
+            <span id="detailPokeID">#${pokemonDetails[index].id}</span>
+            <h2>${capitalizeFirstLetter(pokemonDetails[index].name)}</h2>
             <div class="closeButton" onclick="closeDetailView()">X</div>
         </div>
         <div id="detailMidSection">
-
+            <img id="detailPokePic" src="${pokemonDetails[index].sprites.other.showdown.front_default}" alt="Pokepic">
         </div>
+        <span id="detailPokeText">${flavorTexts[index].flavor_text}</span>
         <div id="detailLowerSection">
-
+            <div id="elements">
+                <div id="detailElement1" class="element ${fillTypes1(index)}">${fillTypes1(index)}</div>
+                <div id="detailElement2" class="element ${fillTypes2(index)}">${fillTypes2(index)}</div>
+            </div>
         </div>
 </div>`
 }
