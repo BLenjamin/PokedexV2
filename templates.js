@@ -1,5 +1,5 @@
 function pokemonCard(index) {
-    return `<div id="pokemonCard" onclick="openDetailView()" class="${fillTypes1(index)}">
+    return `<div id="pokemonCard" onclick="openDetailView(${index})" class="${fillTypes1(index)}">
     <div id="upperSection">
         <span id="pokeID">#${pokemonDetails[index].id}</span>
         <h2>${capitalizeFirstLetter(pokemonDetails[index].name)}</h2>
@@ -20,6 +20,24 @@ function capitalizeFirstLetter(string) {
     let newString = string.charAt(0).toUpperCase() + string.slice(1);
     return newString;
 }
+
+function fillDetailView(index) {
+    return `<div class="innerDetailWrapper">
+        <div id="detailUpperSection">
+            <h2>${pokemonDetails[index].name}</h2>
+            <div class="closeButton" onclick="closeDetailView()">X</div>
+        </div>
+        <div id="detailMidSection">
+
+        </div>
+        <div id="detailLowerSection">
+
+        </div>
+</div>`
+}
+
+
+
 
 /*function createElements(index) {
     if (pokemonDetails[index]["types"].length == 1) {

@@ -90,7 +90,8 @@ function filterPokemon(query) {
     renderPokemon();
 }
 
-function openDetailView() {
+function openDetailView(index) {
+    document.getElementById("detailView").innerHTML = fillDetailView(index)
     document.getElementById('detailView').classList.replace("isHidden", "isShown");
 }
 

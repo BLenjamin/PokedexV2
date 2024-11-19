@@ -18,21 +18,7 @@ header {
     align-items: center;
 }
 
-#detailView {
-    width: 363px;
-    height: 500px;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
+
 
 #content {
     display: flex;
@@ -79,6 +65,25 @@ header {
 
 .isShown {
     display: block;
+}
+
+#detailView {
+    width: 363px;
+    height: 500px;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#detailUpperSection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .closeButton {

@@ -22,10 +22,24 @@
         <input type="text" id="searchBox" placeholder="Search for a Pokémon" onkeydown="findSprite()">
     </header>
 
-    <div class="detailView isHidden" id="detailView"> Pokemon 
-<div class="closeButton" onclick="closeDetailView()">X</div>
 
+
+    <div class="detailView isHidden" id="detailView">
+        <div class="innerDetailWrapper">
+        <div id="detailUpperSection">
+            <h2>${pokemonDetails[index].name}</h2>
+            <div class="closeButton" onclick="closeDetailView()">X</div>
+        </div>
+        <div id="detailMidSection">
+
+        </div>
+        <div id="detailLowerSection">
+
+        </div>
+</div>
     </div>
+
+
 
     <div id="content">
 
