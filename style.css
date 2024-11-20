@@ -81,6 +81,10 @@ header {
     background-color: whitesmoke;
 }
 
+#detailPokePic {
+    max-width: 350px;
+}
+
 .innerDetailWrapper {
     width: 363px;
     height: 500px;

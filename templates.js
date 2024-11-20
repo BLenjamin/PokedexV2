@@ -29,7 +29,7 @@ function fillDetailView(index) {
             <div class="closeButton" onclick="closeDetailView()">X</div>
         </div>
         <div id="detailMidSection">
-            <img id="detailPokePic" src="${pokemonDetails[index].sprites.other.showdown.front_default}" alt="Pokepic">
+            <img id="detailPokePic" src="${pokemonDetails[index].sprites.other.home.front_default}" alt="Pokepic">
         </div>
         <span id="detailPokeText">${flavorTexts[index].flavor_text}</span>
         <div id="detailLowerSection">
