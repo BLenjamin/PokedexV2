@@ -15,7 +15,7 @@ const BASE_URL = "https://pokeapi.co/api/v2/"
 //const BASE_URL2 = "https://pokeapi.co/api/v2/pokemon-species/"
 
 async function fetchURLs(path = "") {
-    let response = await fetch(BASE_URL + "pokemon?offset=45&limit=25" + path + ".json");
+    let response = await fetch(BASE_URL + "pokemon?offset=00&limit=15" + path + ".json");
     let responseAsJson = await response.json();
     let pokemonData = responseAsJson.results;
 

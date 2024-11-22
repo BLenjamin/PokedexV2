@@ -5,7 +5,7 @@ function pokemonCard(index) {
         <h2>${capitalizeFirstLetter(pokemonDetails[index].name)}</h2>
         <div></div>
     </div>
-        <img id="pokePic" src="${pokemonDetails[index].sprites.other.showdown.front_default}" alt="Pokepic">
+        <img id="pokePic" src="${pokemonDetails[index].sprites.other.home.front_default}" alt="Pokepic">
         <div id="lowerSection">
             <span id="pokeText">${flavorTexts[index].flavor_text}</span>
             <div id="elements">
