@@ -14,8 +14,20 @@ async function init() {
 const BASE_URL = "https://pokeapi.co/api/v2/"
 //const BASE_URL2 = "https://pokeapi.co/api/v2/pokemon-species/"
 
+let offset = 0;
+let limit = 15;
+
+async function loadMorePokemon() {
+    offset = limit;
+    limit = limit+15;
+    await fetchURLs();
+    pokemonDetails = await mapThroughURLs();
+    await fetchFlavorTexts();
+    fillCards();
+}
+
 async function fetchURLs(path = "") {
-    let response = await fetch(BASE_URL + "pokemon?offset=00&limit=15" + path + ".json");
+    let response = await fetch(BASE_URL + "pokemon?offset=" + offset + "&limit=" + limit + path + ".json");
     let responseAsJson = await response.json();
     let pokemonData = responseAsJson.results;
 
@@ -63,7 +75,7 @@ async function fetchFlavorTexts() {
 
 
 async function fillCards() {
-    for (let i = 0; i < pokemonDetails.length; i++) {
+    for (let i = offset; i < pokemonDetails.length; i++) {
         document.getElementById("content").innerHTML += pokemonCard(i);
     }
 }

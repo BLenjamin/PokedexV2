@@ -1,6 +1,10 @@
 body {
     margin: 0;
     background-image: url("img/pokedex-bg_1280.jpg");
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 header {
@@ -52,12 +56,12 @@ header {
     justify-content: space-between;
     background-color: rgb(41, 37, 37);
     color: white;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
 }
 
 #elements {
     background-color: rgb(41, 37, 37);
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
 }
 
 .element {
@@ -104,12 +108,18 @@ header {
     width: 363px;
     height: 500px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #detailUpperSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(41, 37, 37);
+    color: white;
+    border-radius: 5px 5px 0 0;
 }
 
 .closeButton {
