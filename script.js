@@ -14,16 +14,15 @@ async function init() {
 const BASE_URL = "https://pokeapi.co/api/v2/"
 //const BASE_URL2 = "https://pokeapi.co/api/v2/pokemon-species/"
 
-let offset = 0;
+let offset = 0; // Diese Zahlen hier haben iein problem
 let limit = 15;
 
 async function loadMorePokemon() {
-    offset = limit;
-    limit = limit+15;
+    offset = offset+15;
     await fetchURLs();
     pokemonDetails = await mapThroughURLs();
     await fetchFlavorTexts();
-    fillCards();
+    fillMoreCards();
 }
 
 async function fetchURLs(path = "") {
@@ -76,6 +75,12 @@ async function fetchFlavorTexts() {
 
 async function fillCards() {
     for (let i = offset; i < pokemonDetails.length; i++) {
+        document.getElementById("content").innerHTML += pokemonCard(i);
+    }
+}
+
+async function fillMoreCards() {
+    for (let i = offset; i < offset+limit; i++) {
         document.getElementById("content").innerHTML += pokemonCard(i);
     }
 }
