@@ -1,28 +1,36 @@
 let allPokemon = [];
 let allPokemonURL = [];
-let pokemonDetails =  [];
+let pokemonDetails = [];
 let flavorTexts = [];
+let currentPokemon = [];
 
 async function init() {
+    await fetchAllPokemonNames();
     await fetchURLs();
     pokemonDetails = await mapThroughURLs();
     await fetchFlavorTexts();
-    console.log(pokemonDetails);
     fillCards();
 }
 
 const BASE_URL = "https://pokeapi.co/api/v2/"
-//const BASE_URL2 = "https://pokeapi.co/api/v2/pokemon-species/"
 
-let offset = 0; // Diese Zahlen hier haben iein problem
+let offset = 0;
 let limit = 15;
 
 async function loadMorePokemon() {
-    offset = offset+15;
+    offset = offset + 15;
     await fetchURLs();
     pokemonDetails = await mapThroughURLs();
     await fetchFlavorTexts();
     fillMoreCards();
+}
+
+async function fetchAllPokemonNames(path = "") {
+    let response = await fetch(BASE_URL + "pokemon?offset=" + 0 + "&limit=" + 151 + path + ".json");
+    let responseAsJson = await response.json();
+    let pokemonData = responseAsJson.results;
+
+    pushAllPokemonNames(pokemonData);
 }
 
 async function fetchURLs(path = "") {
@@ -30,11 +38,23 @@ async function fetchURLs(path = "") {
     let responseAsJson = await response.json();
     let pokemonData = responseAsJson.results;
 
-    pokemonData.forEach(pokemon => {
-        allPokemon.push(pokemon.name);
-        allPokemonURL.push(pokemon.url);
-    });
+    pushPokemonURL(pokemonData);
 }
+
+function pushPokemonURL(pokemonData) {
+    pokemonData.forEach(pokemon => {
+        allPokemonURL.push(pokemon.url);
+    })
+}
+
+function pushAllPokemonNames(pokemonData) {
+    pokemonData.forEach(pokemon => {
+        allPokemon.push({
+            name: pokemon.name,
+        })
+    })
+}
+
 
 async function mapThroughURLs() {
     let pokemonData = [];
@@ -80,7 +100,7 @@ async function fillCards() {
 }
 
 async function fillMoreCards() {
-    for (let i = offset; i < offset+limit; i++) {
+    for (let i = offset; (i < offset + limit) && (i < 151); i++) {
         document.getElementById("content").innerHTML += pokemonCard(i);
     }
 }
@@ -90,21 +110,22 @@ function fillTypes1(index) {
 }
 
 function fillTypes2(index) {
-    if (pokemonDetails[index]["types"].length == 1)  {
-        return "noSecondElement";   
+    if (pokemonDetails[index]["types"].length == 1) {
+        return "noSecondElement";
     } else {
-       return pokemonDetails[index]["types"][1]["type"]["name"];
+        return pokemonDetails[index]["types"][1]["type"]["name"];
     }
 }
 
-function findSprite(index) {
-    let pokemonImg = pokemonDetails[index]["sprites"]["other"]["showdown"]["front_shiny"];
-    return pokemonImg;
-}
+//function findSprite(index) {
+//    let pokemonImg = pokemonDetails[index]["sprites"]["other"]["showdown"]["front_shiny"];
+//    return pokemonImg;
+//}
 
-function filterPokemon(query) {
-    currentPokemon = allPokemon.filter(name => name.includes(query))
-    renderPokemon();
+function filterPokemon() {
+    let query = document.getElementById("searchBox").textContent;
+    currentPokemon = allPokemon.includes(query);
+    console.log(currentPokemon);
 }
 
 function openDetailView(index) {
