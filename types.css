@@ -74,6 +74,11 @@
 }
 
 .dragon {
-    background-color: rgb(255, 235, 205, 0.5);
-    border: 1px solid goldenrod;
+    background-color: rgb(218, 165, 32, 0.5);
+    border: 1px solid rgb(218, 165, 32);
+}
+
+.steel {
+    background-color: rgb(175, 238, 238, 0.5);
+    border: 1px solid paleturquoise;
 }

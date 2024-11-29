@@ -124,7 +124,7 @@ function fillTypes2(index) {
 
 function filterPokemon() {
     let query = document.getElementById("searchBox").textContent;
-    currentPokemon = allPokemon.includes(query);
+    currentPokemon = allPokemon.filter(name => name.includes(query));
     console.log(currentPokemon);
 }
 

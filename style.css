@@ -22,8 +22,6 @@ header {
     align-items: center;
 }
 
-
-
 #content {
     display: flex;
     flex-wrap: wrap;
@@ -44,6 +42,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 3px 3px 5px rgb(44, 44, 44);
 }
 
 #pokePic {
