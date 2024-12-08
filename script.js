@@ -123,7 +123,7 @@ function fillTypes2(index) {
 //}
 
 function filterPokemon() {
-    let query = document.getElementById("searchBox").textContent;
+    let query = document.getElementById("searchBox").value;
     currentPokemon = allPokemon.filter(name => name.includes(query));
     console.log(currentPokemon);
 }
