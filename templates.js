@@ -40,18 +40,3 @@ function fillDetailView(index) {
         </div>
 </div>`
 }
-
-
-
-
-/*function createElements(index) {
-    if (pokemonDetails[index]["types"].length == 1) {
-    document.getElementById("elements").innerHTML = `<div class="element" id="element_${filltypes1(index)}">
-    </div>`
-    } else {
-        document.getElementById("elements").innerHTML = `<div class="element" id="element_${fillTypes1(index)}">
-        </div>
-        <div class="element" id="element_${fillTypes2(index)}">
-        </div>`
-    }
-}*/
