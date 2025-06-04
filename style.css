@@ -63,6 +63,11 @@ header {
     border-radius: 0 0 5px 5px;
 }
 
+#type {
+    max-height: 17%;
+    max-width: 17%;
+}
+
 .element {
     border: 1px solid black;
     border-radius: 2px;

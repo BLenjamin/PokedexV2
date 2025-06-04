@@ -117,10 +117,14 @@ function fillTypes2(index) {
     }
 }
 
-//function findSprite(index) {
-//    let pokemonImg = pokemonDetails[index]["sprites"]["other"]["showdown"]["front_shiny"];
-//    return pokemonImg;
-//}
+function typeCheck(index) {
+    if (pokemonDetails[index]["types"].length == 1) {
+        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" alt="${fillTypes1(index)}"></img>`
+    } else {
+        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" alt="${fillTypes1(index)}"></img>
+                <img id="type" src="img/types/${fillTypes2(index)}.svg" alt="${fillTypes2(index)}"></img>`; 
+    }
+}
 
 function filterPokemon() {
     let query = document.getElementById("searchBox").value;

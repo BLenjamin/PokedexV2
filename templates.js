@@ -9,12 +9,20 @@ function pokemonCard(index) {
         <div id="lowerSection">
             <span id="pokeText">${flavorTexts[index].flavor_text}</span>
             <div id="elements">
-                <div id="element1" class="element ${fillTypes1(index)}">${fillTypes1(index)}</div>
-                <div id="element2" class="element ${fillTypes2(index)}">${fillTypes2(index)}</div>
+                ${typeCheck(index)}
             </div>
         </div>
 </div>`
 }
+
+//<div id="element1" class="element ${fillTypes1(index)}">${fillTypes1(index)}</div>
+//                <img id="type" src="img/types/${fillTypes1(index)}.svg" alt="${fillTypes1(index)}">
+//                
+//                <div id="element2" class="element ${fillTypes2(index)}">${fillTypes2(index)}</div>
+//                <img id="type" src="img/types/${fillTypes2(index)}.svg" alt="${fillTypes2(index)}">
+
+
+
 
 function capitalizeFirstLetter(string) {
     let newString = string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,9 +42,12 @@ function fillDetailView(index) {
         <span id="detailPokeText">${flavorTexts[index].flavor_text}</span>
         <div id="detailLowerSection">
             <div id="elements">
-                <div id="detailElement1" class="element ${fillTypes1(index)}">${fillTypes1(index)}</div>
-                <div id="detailElement2" class="element ${fillTypes2(index)}">${fillTypes2(index)}</div>
+                ${typeCheck(index)}
             </div>
         </div>
 </div>`
 }
+
+//<div id="detailElement1" class="element ${fillTypes1(index)}">${fillTypes1(index)}</div>
+//                <div id="detailElement2" class="element ${fillTypes2(index)}">${fillTypes2(index)}</div>
+
