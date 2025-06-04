@@ -119,10 +119,10 @@ function fillTypes2(index) {
 
 function typeCheck(index) {
     if (pokemonDetails[index]["types"].length == 1) {
-        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" alt="${fillTypes1(index)}"></img>`
+        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" title="${fillTypes1(index)}" alt="${fillTypes1(index)}"></img>`
     } else {
-        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" alt="${fillTypes1(index)}"></img>
-                <img id="type" src="img/types/${fillTypes2(index)}.svg" alt="${fillTypes2(index)}"></img>`; 
+        return `<img id="type" src="img/types/${fillTypes1(index)}.svg" title="${fillTypes1(index)}" alt="${fillTypes1(index)}"></img>
+                <img id="type" src="img/types/${fillTypes2(index)}.svg" title="${fillTypes2(index)}" alt="${fillTypes2(index)}"></img>`; 
     }
 }
 
