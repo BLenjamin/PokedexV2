@@ -4,6 +4,8 @@ let pokemonDetails = [];
 let flavorTexts = [];
 let currentPokemon = [];
 
+
+
 async function init() {
     await fetchAllPokemonNames();
     await fetchURLs();
@@ -15,10 +17,12 @@ async function init() {
 const BASE_URL = "https://pokeapi.co/api/v2/"
 
 let offset = 0;
-let limit = 15;
+let limit = 30;
+
+
 
 async function loadMorePokemon() {
-    offset = offset + 15;
+    offset = offset + 30;
     await fetchURLs();
     pokemonDetails = await mapThroughURLs();
     await fetchFlavorTexts();
@@ -126,17 +130,24 @@ function typeCheck(index) {
     }
 }
 
+//document.getElementById("searchBox").addEventListener("input", filterPokemon());
+
 function filterPokemon() {
+
     let query = document.getElementById("searchBox").value;
-    currentPokemon = allPokemon.filter(name => name.includes(query));
-    console.log(currentPokemon);
+
+    if (query.length > 2) {let regExp = new RegExp(query, 'i');
+
+    console.log(allPokemon.filter(x => regExp.test(x.name)));}
 }
 
 function openDetailView(index) {
-    document.getElementById("detailView").innerHTML = fillDetailView(index)
-    document.getElementById('detailView').classList.replace("isHidden", "isShown");
+    document.getElementById("detailView").innerHTML = fillDetailView(index);
+    document.getElementById("detailView").classList.replace("isHidden", "isShown");
+    document.getElementById("opaqueBackground").classList.replace("isHidden", "isShown");
 }
 
 function closeDetailView() {
-    document.getElementById('detailView').classList.replace("isShown", "isHidden");
+    document.getElementById("detailView").classList.replace("isShown", "isHidden");
+    document.getElementById("opaqueBackground").classList.replace("isShown", "isHidden");
 }

@@ -16,32 +16,33 @@
 </head>
 
 <body onload="init()">
+    
+        <header>
+            <div id="headerLeft">
+                <img src="img/favicon-32x32.png" alt="PokeLogo">
+                <h1>Pokédex</h1>
+            </div>
+            <input type="text" id="searchBox" placeholder="Search for a Pokémon" onkeydown="filterPokemon()"
+                minlength="3">
+        </header>
 
-    <header>
-        <div id="headerLeft">
-            <img src="img/favicon-32x32.png" alt="PokeLogo">
-            <h1>Pokédex</h1>
+
+<div id="opaqueBackground" class="isHidden">
+        <div class="detailView isHidden" id="detailView">
+
         </div>
-        <input type="text" id="searchBox" placeholder="Search for a Pokémon" onkeydown="filterPokemon()">
-    </header>
+</div>
+
+
+        <div id="content">
 
 
 
-    <div class="detailView isHidden" id="detailView">
+        </div>
 
-    </div>
+        <button id="loadButton" onclick="loadMorePokemon()">Load More POKéMON</button>
 
-
-
-    <div id="content">
-
-
-
-    </div>
-
-    <button id="loadButton" onclick="loadMorePokemon()">Load More POKéMON</button>
-
-
+    
 </body>
 
 </html>
