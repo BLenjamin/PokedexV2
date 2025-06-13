@@ -145,9 +145,11 @@ function openDetailView(index) {
     document.getElementById("detailView").innerHTML = fillDetailView(index);
     document.getElementById("detailView").classList.replace("isHidden", "isShown");
     document.getElementById("opaqueBackground").classList.replace("isHidden", "isShown");
+    document.body.style.overflow = 'hidden';
 }
 
 function closeDetailView() {
     document.getElementById("detailView").classList.replace("isShown", "isHidden");
     document.getElementById("opaqueBackground").classList.replace("isShown", "isHidden");
+    document.body.style.overflow = '';
 }
