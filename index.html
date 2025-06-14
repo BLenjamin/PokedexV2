@@ -2,47 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
-    <script src="script.js"></script>
-    <script src="templates.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="types.css">
-    <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokédex</title>
+        <script src="script.js"></script>
+        <script src="templates.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="types.css">
+        <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body onload="init()">
-    
+
         <header>
-            <div id="headerLeft">
-                <img src="img/favicon-32x32.png" alt="PokeLogo">
-                <h1>Pokédex</h1>
-            </div>
-            <input type="text" id="searchBox" placeholder="Search for a Pokémon" onkeydown="filterPokemon()"
-                minlength="3">
+                <div id="headerLeft">
+                        <img src="img/favicon-32x32.png" alt="PokeLogo">
+                        <h1>Pokédex</h1>
+                </div>
+                <input type="text" id="searchBox" placeholder="Search for a Pokémon" onkeydown="filterPokemon()"
+                        minlength="3">
         </header>
 
-
-<div id="opaqueBackground" class="isHidden">
-        <div class="detailView isHidden" id="detailView">
-
+        <div id="loadingSpinner" class="isHidden">
+                <img src="img/favicon-32x32.png" alt="Loading...">
+                <span>Loading...</span>
         </div>
-</div>
-
-
-        <div id="content">
-
-
-
+        <div id="opaqueBackground" class="isHidden" onclick="closeDetailView()">
+                <div id="detailViewContainer">
+                        <div id="moveDown" class="detailNavigate" onclick="moveDown()">-</div>
+                        <div class="detailView isHidden" id="detailView"></div>
+                        <div id="moveUp" class="detailNavigate" onclick="moveUp()">+</div>
+                </div>
         </div>
 
-        <button id="loadButton" onclick="loadMorePokemon()">Load More POKéMON</button>
 
-    
+                <div id="content"></div>
+
+                <button id="loadButton" onclick="loadMorePokemon()">Load More POKéMON</button>
+
+
 </body>
 
 </html>
