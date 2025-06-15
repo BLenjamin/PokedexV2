@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokédex</title>
-        <script src="script.js"></script>
-        <script src="templates.js"></script>
+        
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="types.css">
         <link rel="icon" href="img/favicon-32x32.png" type="image/x-icon">
@@ -30,12 +29,12 @@
                 <img src="img/favicon-32x32.png" alt="Loading...">
                 <span>Loading...</span>
         </div>
-        <div id="opaqueBackground" class="isHidden" onclick="closeDetailView()">
-                <div id="detailViewContainer">
+        <div id="opaqueBackground" class="isHidden">
+                
                         <div id="moveDown" class="detailNavigate" onclick="moveDown()">-</div>
                         <div class="detailView isHidden" id="detailView"></div>
                         <div id="moveUp" class="detailNavigate" onclick="moveUp()">+</div>
-                </div>
+                
         </div>
 
 
@@ -43,7 +42,8 @@
 
                 <button id="loadButton" onclick="loadMorePokemon()">Load More POKéMON</button>
 
-
+<script src="script.js"></script>
+        <script src="templates.js"></script>
 </body>
 
 </html>

@@ -19,7 +19,14 @@ const BASE_URL = "https://pokeapi.co/api/v2/"
 let offset = 0;
 let limit = 30;
 
-
+document.getElementById("opaqueBackground").addEventListener('click', function(event) {
+  if (event.target === this) {
+    closeDetailView();
+  }
+});
+document.getElementById("opaqueBackground").addEventListener('click', function(event) {
+  console.log("You clicked on:", event.target);
+});
 
 async function loadMorePokemon() {
     offset = offset + 30;
