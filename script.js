@@ -160,3 +160,8 @@ function closeDetailView() {
     document.getElementById("opaqueBackground").classList.replace("isShown", "isHidden");
     document.body.style.overflow = '';
 }
+
+function moveDown() {
+    let index = document.getElementById("detailPokeID").value.slice(1);
+    document.getElementById("detailView").innerHTML = fillDetailView(index-1);
+}

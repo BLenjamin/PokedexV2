@@ -141,7 +141,7 @@ header {
 
 .innerDetailWrapper {
     width: 363px;
-    height: 500px;
+    min-height: 500px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
