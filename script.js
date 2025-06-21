@@ -3,7 +3,7 @@ let allPokemonURL = [];
 let pokemonDetails = [];
 let flavorTexts = [];
 let currentPokemon = [];
-
+let currentIndex = 0;
 
 
 async function init() {
@@ -149,6 +149,7 @@ function filterPokemon() {
 }
 
 function openDetailView(index) {
+    currentIndex = index;
     document.getElementById("detailView").innerHTML = fillDetailView(index);
     document.getElementById("detailView").classList.replace("isHidden", "isShown");
     document.getElementById("opaqueBackground").classList.replace("isHidden", "isShown");
@@ -162,6 +163,7 @@ function closeDetailView() {
 }
 
 function moveDown() {
-    let index = document.getElementById("detailPokeID").value.slice(1);
-    document.getElementById("detailView").innerHTML = fillDetailView(index-1);
+    currentIndex = (currentIndex === 0) ? 150 : currentIndex - 1;
+
+    document.getElementById("detailView").innerHTML = fillDetailView(currentIndex);
 }
