@@ -19,21 +19,31 @@ const BASE_URL = "https://pokeapi.co/api/v2/"
 let offset = 0;
 let limit = 30;
 
-document.getElementById("opaqueBackground").addEventListener('click', function(event) {
-  if (event.target === this) {
-    closeDetailView();
-  }
+document.getElementById("opaqueBackground").addEventListener('click', function (event) {
+    if (event.target === this) {
+        closeDetailView();
+    }
 });
-document.getElementById("opaqueBackground").addEventListener('click', function(event) {
-  console.log("You clicked on:", event.target);
+document.getElementById("opaqueBackground").addEventListener('click', function (event) {
+    console.log("You clicked on:", event.target);
 });
 
 async function loadMorePokemon() {
     offset = offset + 30;
+    showLoadingSpinner();
     await fetchURLs();
     pokemonDetails = await mapThroughURLs();
     await fetchFlavorTexts();
+    disableLoadingSpinner();
     fillMoreCards();
+}
+
+function showLoadingSpinner() {
+    document.getElementById("loadingBackground").classList.remove("isHidden");
+}
+
+function disableLoadingSpinner() {
+    document.getElementById("loadingBackground").classList.add("isHidden");
 }
 
 async function fetchAllPokemonNames(path = "") {
@@ -133,7 +143,7 @@ function typeCheck(index) {
         return `<img id="type" src="img/types/${fillTypes1(index)}.svg" title="${fillTypes1(index)}" alt="${fillTypes1(index)}"></img>`
     } else {
         return `<img id="type" src="img/types/${fillTypes1(index)}.svg" title="${fillTypes1(index)}" alt="${fillTypes1(index)}"></img>
-                <img id="type" src="img/types/${fillTypes2(index)}.svg" title="${fillTypes2(index)}" alt="${fillTypes2(index)}"></img>`; 
+                <img id="type" src="img/types/${fillTypes2(index)}.svg" title="${fillTypes2(index)}" alt="${fillTypes2(index)}"></img>`;
     }
 }
 
@@ -143,9 +153,11 @@ function filterPokemon() {
 
     let query = document.getElementById("searchBox").value;
 
-    if (query.length > 2) {let regExp = new RegExp(query, 'i');
+    if (query.length > 2) {
+        let regExp = new RegExp(query, 'i');
 
-    console.log(allPokemon.filter(x => regExp.test(x.name)));}
+        console.log(allPokemon.filter(x => regExp.test(x.name)));
+    }
 }
 
 function openDetailView(index) {
@@ -164,6 +176,12 @@ function closeDetailView() {
 
 function moveDown() {
     currentIndex = (currentIndex === 0) ? 150 : currentIndex - 1;
+
+    document.getElementById("detailView").innerHTML = fillDetailView(currentIndex);
+}
+
+function moveUp() {
+    currentIndex = (currentIndex === 150) ? 0 : currentIndex + 1;
 
     document.getElementById("detailView").innerHTML = fillDetailView(currentIndex);
 }
